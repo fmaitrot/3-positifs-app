@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2d6a4f" />
+    <title>3 choses positives</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/app-icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=20260508" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div class="hero-top">
+          <h1>3 choses positives</h1>
+          <div class="hero-actions">
+            <button type="button" id="theme-toggle" class="button-secondary theme-toggle">
+              Theme noir
+            </button>
+            <button type="button" id="logout-button" class="button-secondary" hidden>
+              Se deconnecter
+            </button>
+          </div>
+        </div>
+        <p>Écris chaque jour 3 choses positives qui te sont arrivées, puis consulte ton historique.</p>
+        <p id="user-chip" class="user-chip" hidden></p>
+      </header>
+
+      <section id="auth-panel" class="panel" aria-labelledby="auth-title">
+        <h2 id="auth-title">Connexion</h2>
+        <div class="auth-switch" role="tablist" aria-label="Mode d'authentification">
+          <button
+            type="button"
+            id="show-login"
+            class="button-secondary auth-switch-button is-active"
+            aria-pressed="true"
+          >
+            Connexion
+          </button>
+          <button
+            type="button"
+            id="show-register"
+            class="button-secondary auth-switch-button"
+            aria-pressed="false"
+          >
+            Créer un compte
+          </button>
+        </div>
+        <form id="login-form" class="auth-form" novalidate>
+          <label for="auth-email">Email</label>
+          <input id="auth-email" type="email" autocomplete="email" required />
+
+          <label for="auth-password">Mot de passe</label>
+          <input id="auth-password" type="password" autocomplete="current-password" required />
+
+          <button type="submit">Se connecter</button>
+        </form>
+
+        <form id="register-form" class="auth-form" novalidate hidden>
+          <label for="register-email">Email</label>
+          <input id="register-email" type="email" autocomplete="email" required />
+
+          <label for="register-password">Mot de passe (8+ caracteres)</label>
+          <input id="register-password" type="password" autocomplete="new-password" required />
+
+          <button type="submit" class="button-secondary">S'inscrire</button>
+        </form>
+
+        <p id="auth-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <nav id="app-nav" class="panel app-nav" aria-label="Navigation principale" hidden>
+        <button type="button" class="button-secondary nav-link is-active" data-view="entry">
+          Ma journée
+        </button>
+        <button type="button" class="button-secondary nav-link" data-view="history">Historique</button>
+        <button type="button" class="button-secondary nav-link" data-view="calendar">Calendrier</button>
+        <button type="button" class="button-secondary nav-link" data-view="reminder">Rappels</button>
+      </nav>
+
+      <section id="entry-panel" class="panel" aria-labelledby="entry-title" hidden>
+        <h2 id="entry-title">Entrer ma journée</h2>
+        <form id="daily-form" novalidate>
+          <label for="entry-date">Date</label>
+          <input id="entry-date" name="entry-date" type="date" required />
+
+          <label for="positive-1">Positive 1</label>
+          <textarea id="positive-1" rows="2" maxlength="200" required></textarea>
+
+          <label for="positive-2">Positive 2</label>
+          <textarea id="positive-2" rows="2" maxlength="200" required></textarea>
+
+          <label for="positive-3">Positive 3</label>
+          <textarea id="positive-3" rows="2" maxlength="200" required></textarea>
+
+          <div class="button-row">
+            <button type="submit">Sauvegarder</button>
+            <button type="button" id="delete-day" class="button-secondary">Supprimer ce jour</button>
+          </div>
+
+          <p id="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="history-panel" class="panel" aria-labelledby="history-title" hidden>
+        <h2 id="history-title">Historique</h2>
+        <label for="search">Recherche</label>
+        <input id="search" type="search" placeholder="Filtrer par mot cle..." autocomplete="off" />
+        <div id="history-list" class="history-list"></div>
+        <div class="history-controls">
+          <button type="button" id="load-more" class="button-secondary">Charger plus</button>
+          <p id="history-status" class="history-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="calendar-panel" class="panel" aria-labelledby="calendar-title" hidden>
+        <h2 id="calendar-title">Calendrier</h2>
+        <label for="calendar-month">Mois</label>
+        <input id="calendar-month" type="month" />
+        <div id="calendar-grid" class="calendar-grid"></div>
+        <p id="calendar-status" class="calendar-status" aria-live="polite"></p>
+      </section>
+
+      <section id="reminder-panel" class="panel" aria-labelledby="reminder-title" hidden>
+        <h2 id="reminder-title">Rappel quotidien</h2>
+        <label class="inline-check" for="reminder-enabled">
+          <input id="reminder-enabled" type="checkbox" />
+          <span>Activer un rappel quotidien</span>
+        </label>
+
+        <label for="reminder-time">Heure du rappel</label>
+        <input id="reminder-time" type="time" step="60" />
+
+        <button type="button" id="save-reminder" class="button-secondary">Enregistrer le rappel</button>
+        <p id="reminder-status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="app.js?v=20260508"></script>
+  </body>
+</html>

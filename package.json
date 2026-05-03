@@ -1,0 +1,14 @@
+{
+  "name": "3-positifs-app-tooling",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:js": "eslint public/**/*.js",
+    "lint": "eslint public/**/*.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "eslint": "^9.26.0",
+    "globals": "^15.15.0"
+  }
+}

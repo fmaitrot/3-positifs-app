@@ -1,0 +1,17 @@
+{
+  "name": "3 choses positives",
+  "short_name": "Positives",
+  "description": "Saisie quotidienne de 3 choses positives avec historique.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f6f8f0",
+  "theme_color": "#2d6a4f",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icons/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
