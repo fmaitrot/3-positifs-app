@@ -1,8 +1,7 @@
-# 3 choses positives - V3 PostgreSQL (backend Python)
+# 3 choses positives
 
-Application web responsive (PC + telephone) pour noter chaque jour 3 choses positives, avec stockage centralise PostgreSQL.
+Application web responsive pour noter chaque jour 3 choses positives, avec stockage dans PostgreSQL.
 
-Version V3:
 - authentification utilisateur (session cookie)
 - calendrier mensuel des jours complets
 - rappels quotidiens configurables
@@ -34,7 +33,7 @@ Outils inclus:
 - `ruff`: linter Python
 - `eslint`: linter JavaScript frontend
 
-Installation des dependances de qualite:
+Installation des dependances :
 
 ```bash
 python3 -m venv .venv
@@ -42,13 +41,13 @@ python3 -m venv .venv
 npm install
 ```
 
-Executer les tests unitaires:
+Executer les tests unitaires :
 
 ```bash
 ./.venv/bin/pytest
 ```
 
-Executer les linters:
+Executer les linters :
 
 ```bash
 ./.venv/bin/ruff check .
